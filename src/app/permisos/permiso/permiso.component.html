@@ -1,0 +1,30 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <div class="form-group">
+        <label>Nombre Empleado</label>
+        <input name="NombreEmpleado" #NombreEmpleado="ngModel" [(ngModel)]="service.formData.NombreEmpleado" class="form-control" required>
+        <div class="validation-error" *ngIf="NombreEmpleado.invalid && NombreEmpleado.touched">El campo es obligatorio.</div>
+    </div>
+    <div class="form-group">
+        <label>Apellidos Empleado</label>
+        <input name="ApellidosEmpleado" #ApellidosEmpleado="ngModel" [(ngModel)]="service.formData.ApellidosEmpleado" class="form-control" required>
+        <div class="validation-error" *ngIf="ApellidosEmpleado.invalid && ApellidosEmpleado.touched">El campo es obligatorio.</div>
+
+    </div>
+    <div class="form-group" >
+        <label>Tipo Permiso</label>
+        <a class="btn btn-secondary dropdown-toggle form-control" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tipo de Permiso
+          </a>
+        <input name="TipoPermiso" #TipoPermiso="ngModel" [(ngModel)]="service.formData.TipoPermiso" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label>Fecha Permiso</label>
+        <input type="datetime-local" id="meeting-time"
+        value="2021-08-02T00:00" name="FechaPermiso" #FechaPermiso="ngModel" [(ngModel)]="service.formData.FechaPermiso"
+       min="2019-08-02T00:00" max="2026-08-02T00:00" class="form-control">
+       
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">Registrar</button>
+    </div>
+</form>
